@@ -1,1 +1,0 @@
-witam pana generała xd

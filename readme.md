@@ -1,2 +1,1 @@
-siemanko, siemka
-pierdol sie na ryj
+witam pana generała xd

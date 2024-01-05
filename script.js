@@ -33,10 +33,10 @@ function createChart(data) {
     }
 
     // i tworzy nowy
-    myChart = new Chart(ctx, {
+    myChart = new Chart(ctx, {                                                                                                                                         
         type: 'bar',
         data: {
-            labels: data.map(item => item.name), //https://www.chartjs.org/docs/latest/getting-started/
+            labels: data.map(item => item.name), //https://www.chartjs.org/docs/latest/getting-started/                                                               // niech ten chart sie mniejszy generuje bo to na cala strone jest
             datasets: [{
                 label: 'Dataset',
                 data: data.map(item => item.value), // ten caly kod maja w poradniku na ich stronie jak to implementowac

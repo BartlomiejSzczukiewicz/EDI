@@ -1,45 +1,44 @@
-let myChart = null; //ustala ze na poczatku tabelka nie istnieje (potrzebne, wczesniej byl error)
+let myChart = null;
+let currentChartType = 'bar'; 
+let currentData = null; 
 
 document.getElementById('loadData').addEventListener('click', function() {
-    fetch('https://my.api.mockaroo.com/Whatever2.json', {  // fetch api method
+    fetch('https://my.api.mockaroo.com/Whatever2.json', {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json', //nie jestem tego pewien
-            'X-API-Key': '98097d00'  //  mockaroo API Key
+            'Content-Type': 'application/json',
+            'X-API-Key': '98097d00'
         }
     })
-        .then(response => response.json()) //odpowiedz serwera tzn ten plik json
-        .then(data => {
-            displayData(data); //odpalamy funkcje z tym plikiem jako argumentem
-            createChart(data);
-        })
+    .then(response => response.json())
+    .then(data => {
+        currentData = data; 
+        displayData(data);
+        createChart(currentData, currentChartType);
+    })
 });
 
 function displayData(data) {
-    var html = '<table><tr><th>Name</th><th>Value</th></tr>';   //trzeba to ladniej zrobic (bootstrap)
+    var html = '<table><tr><th>Name</th><th>Value</th></tr>';
     data.forEach(row => {
-        html += `<tr><td>${row.name}</td><td>${row.value}</td></tr>`; //bylo na ostatnim projekcie tzw dynamiczne zapelnianie tabeli czyli for loop                 // html to zmienna ktorza przechowuje tworzaca sie tabelke, tak jakby
-    });                                                                                                                                                             // po prostu tworzy stringa <tr><td>tu content co sie zmienia</td<td>sss</td></tr>
-    html += '</table>'; // zamyka tworzona tabelke po skonczeniu petli                                                                                              // i tu kolejna iteracja <tr><td>tu content co sie zmienia2</td<td>sss2</td></tr>       
-    document.getElementById('data').innerHTML = html; //ostatni krok to wrzucenie tej tabelki utworzonej na strone                                                  // <tr><td>tu content co sie zmienia3</td<td>sss3</td></tr>
+        html += `<tr><td>${row.name}</td><td>${row.value}</td></tr>`;
+    });
+    html += '</table>';
+    document.getElementById('data').innerHTML = html;
 }
 
-function createChart(data) {
+function createChart(data, chartType) {
     var ctx = document.getElementById('myChart').getContext('2d');
-    
-    // usuwa poprzedni wykres
     if (myChart) {
         myChart.destroy();
     }
-
-    // i tworzy nowy
-    myChart = new Chart(ctx, {                                                                                                                                         
-        type: 'bar',
+    myChart = new Chart(ctx, {
+        type: chartType,
         data: {
-            labels: data.map(item => item.name), //https://www.chartjs.org/docs/latest/getting-started/                                                               // niech ten chart sie mniejszy generuje bo to na cala strone jest
+            labels: data.map(item => item.name),
             datasets: [{
                 label: 'Dataset',
-                data: data.map(item => item.value), // ten caly kod maja w poradniku na ich stronie jak to implementowac
+                data: data.map(item => item.value),
                 backgroundColor: 'rgba(255, 255, 255, 0.247)',
                 borderColor: 'rgba(52, 65, 52, 0.466)',
                 borderWidth: 1
@@ -54,3 +53,10 @@ function createChart(data) {
         }
     });
 }
+
+document.getElementById('switchChartType').addEventListener('click', function() {
+    currentChartType = currentChartType === 'bar' ? 'line' : 'bar';
+    if (currentData) {
+        createChart(currentData, currentChartType);
+    }
+});

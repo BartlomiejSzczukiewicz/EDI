@@ -83,8 +83,9 @@ ul li {
 #data {
     margin-top: 20px;
 }
-#loadData {
-    background-color: blue;
+#switchChartType {
+    margin-top: 10px;
+    background-color: rgba(52, 65, 52, 0.466);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -107,17 +108,6 @@ body {
 
 #data {
     margin-top: 20px;
-}
-#loadData {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
 }
 
 table {

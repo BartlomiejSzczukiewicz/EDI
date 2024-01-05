@@ -61,9 +61,10 @@ body {
 }
 
 .main-content { flex: 1; padding: 20px; box-sizing: border-box; text-align: center; color: #ffffff; margin-left: 240px; }
-
+.githubcards { flex: 1; padding: 20px; box-sizing: border-box; text-align: center; color: #ffffff; margin-left: 195px; }
+.wazne { flex: 1; padding: 20px; box-sizing: border-box; text-align: center; color: #ffffff; margin-left: 195px; }
 .main-content h1.authors-title {
-    margin-left: -70px; 
+    margin-left: -60px;
 }
 
 h1, h2 {
@@ -126,6 +127,8 @@ th, td {
 
 #myChart {               
     margin-top: 20px;
+    max-width: 1600px;
+    max-height: 300px;
 }
 #loadData {
     background-color: rgba(52, 65, 52, 0.466); 
@@ -138,3 +141,4 @@ th, td {
     display: block;
     width: 100%;
 }
+

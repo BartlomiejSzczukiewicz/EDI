@@ -1,6 +1,6 @@
 let myChart = null;
 let currentChartType = 'bar'; 
-let currentData = null; 
+let currentData = null;  //nie dotykac bo error
 
 document.getElementById('loadData').addEventListener('click', function() {
     fetch('https://my.api.mockaroo.com/Whatever2.json', {
@@ -19,9 +19,9 @@ document.getElementById('loadData').addEventListener('click', function() {
 });
 
 function displayData(data) {
-    var html = '<table><tr><th>Name</th><th>Value</th></tr>';
+    var html = '<table><tr><th>Name</th><th>Amount</th></tr>';
     data.forEach(row => {
-        html += `<tr><td>${row.name}</td><td>${row.value}</td></tr>`;
+        html += `<tr><td>${row.name}</td><td>${row.amount}</td></tr>`;
     });
     html += '</table>';
     document.getElementById('data').innerHTML = html;
@@ -37,14 +37,15 @@ function createChart(data, chartType) {
         data: {
             labels: data.map(item => item.name),
             datasets: [{
-                label: 'Dataset',
-                data: data.map(item => item.value),
+                label: 'Amount',
+                data: data.map(item => item.amount),
                 backgroundColor: 'rgba(255, 255, 255, 0.247)',
-                borderColor: 'rgba(52, 65, 52, 0.466)',
+                borderColor: 'rgba(255,255,255,0.247)',
                 borderWidth: 1
             }]
         },
         options: {
+            maintainAspectRatio: true,
             scales: {
                 y: {
                     beginAtZero: true

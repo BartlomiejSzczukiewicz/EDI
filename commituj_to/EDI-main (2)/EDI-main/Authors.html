@@ -1,0 +1,68 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Website</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="#">
+                <img src="./zdj/logo.gif" alt="Logo">
+            </a>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="strona.html">
+                        <span class="fa fa-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="data.html">
+                            <span class="fa fa-data-vis"></span>
+                            <span>Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Authors.html">
+                        <span class="fa fa-authors"></span>
+                        <span>Authors</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content" style="text-align: center;">
+        <h1 class="authors-title">Authors of the Website</h1>
+        <table class="table" id="authors-table" style="margin-left: auto; margin-right: auto;">
+            <tr>
+                <td>
+                    <div class="github-card" data-github="BartlomiejSzczukiewicz" data-width="250" data-height="250" data-theme="medium"></div>
+                </td>
+                <td>1. Developed core features<br>2. UI/UX design</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="github-card" data-github="AdamPoreba1" data-width="250" data-height="250" data-theme="medium"></div>
+                </td>
+                <td>1. Database management<br>2. Backend integration</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="github-card" data-github="xyu333" data-width="250" data-height="250" data-theme="medium"></div>
+                </td>
+                <td>1. Marketing strategy<br>2. Client relations</td>
+            </tr>
+        </table>
+        <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+    </div>
+
+</body>
+</html>
